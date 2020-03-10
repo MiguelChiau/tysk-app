@@ -123,7 +123,7 @@ import {
   Home,
   Details,
   Search2,
-  Profile,
+  Dashboard,
   Splash
 } from "./screens/Screens";
 
@@ -144,6 +144,11 @@ const AuthStackScreen = () => (
       name="LoginAccount"
       component={LoginAccount}
       options={{ title: "Login to Account" }}
+    />
+    <AuthStack.Screen
+      name="Home"
+      component={Home}
+      options={{ title: "Home 1" }}
     />
   </AuthStack.Navigator>
 );
@@ -172,11 +177,11 @@ const SearchStackScreen = () => (
   </SearchStack.Navigator>
 );
 
-const ProfileStack = createStackNavigator();
-const ProfileStackScreen = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile} />
-  </ProfileStack.Navigator>
+const DashboardStack = createStackNavigator();
+const DashboardStackScreen = () => (
+  <DashboardStack.Navigator>
+    <DashboardStack.Screen name="Dashboard" component={Dashboard} />
+  </DashboardStack.Navigator>
 );
 
 const TabsScreen = () => (
@@ -188,9 +193,9 @@ const TabsScreen = () => (
 
 const Drawer = createDrawerNavigator();
 const DrawerScreen = () => (
-  <Drawer.Navigator initialRouteName="Profile">
+  <Drawer.Navigator initialRouteName="Dashboard">
     <Drawer.Screen name="Home" component={TabsScreen} />
-    <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+    <Drawer.Screen name="Dashboard" component={DashboardStackScreen} />
   </Drawer.Navigator>
 );
 

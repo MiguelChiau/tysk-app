@@ -18,6 +18,9 @@ import {
 } from "react-native";
 
 import { AuthContext } from "./context";
+
+// import { HomeStack } from "./context";
+
 import Img from "../assets/bg.jpeg";
 
 const ScreenContainer = ({ children }) => (
@@ -72,12 +75,85 @@ export const Search2 = () => (
   </ScreenContainer>
 );
 
-export const Profile = ({ navigation }) => {
+export const Dashboard = ({ navigation }) => {
   const { signOut } = React.useContext(AuthContext);
+  const { home } = React.useContext(AuthContext);
 
   return (
     <ScreenContainer>
-      <Text>Profile Screen</Text>
+      <Text
+        style={{
+          fontSize: 30,
+          color: "#0811DD",
+          fontWeight: "bold"
+        }}
+      >
+        Tysk
+      </Text>
+      <TouchableOpacity style={styles.dashboardButton}>
+        <Text
+          style={{
+            // color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          Add New Task{" "}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.dashboardButton}>
+        <Text
+          style={{
+            // color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          View Calender{" "}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.dashboardButton}>
+        <Text
+          style={{
+            // color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          View Statistics{" "}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.dashboardButton}>
+        <Text
+          style={{
+            // color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          Notifications{" "}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.dashboardButton}>
+        <Text
+          style={{
+            // color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          Profile{" "}
+        </Text>
+      </TouchableOpacity>
       <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
       <Button title="Sign Out" onPress={() => signOut()} />
     </ScreenContainer>
@@ -130,8 +206,10 @@ export const SignIn = ({ navigation }) => {
   );
 };
 
-export const LoginAccount = () => {
+export const LoginAccount = ({ navigation }) => {
+  // export const LoginAccount = () => {
   const { signUp } = React.useContext(AuthContext);
+  const { home } = React.useContext(AuthContext);
 
   return (
     <ScreenContainer>
@@ -151,7 +229,10 @@ export const LoginAccount = () => {
           marginHorizontal: 20,
           paddingLeft: 10,
           marginVertical: 5,
-          shadowOffset: { width: 2, height: 2 }
+          shadowOffset: {
+            width: 2,
+            height: 2
+          }
         }}
       >
         <TextInput
@@ -175,7 +256,10 @@ export const LoginAccount = () => {
           marginHorizontal: 20,
           paddingLeft: 10,
           marginVertical: 5,
-          shadowOffset: { width: 2, height: 2 }
+          shadowOffset: {
+            width: 2,
+            height: 2
+          }
         }}
       >
         <TextInput
@@ -191,7 +275,11 @@ export const LoginAccount = () => {
           // ref={"passwordText"}
         />
       </View>
-      <TouchableOpacity style={styles.loginButton} onPress={() => signUp()}>
+      <TouchableOpacity
+        style={styles.loginButton}
+        // onPress={() => navigation.push("Home")}
+        onPress={() => signUp()}
+      >
         <Text
           style={{
             color: "white",
@@ -354,5 +442,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 10,
     width: "90%"
+  },
+  dashboardButton: {
+    borderWidth: 1,
+    height: 60,
+    width: "80%",
+    justifyContent: "center",
+    alignSelf: "center",
+    backgroundColor: "white",
+    borderColor: "white",
+    borderRadius: 10,
+    marginVertical: 20,
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4
   }
 });
