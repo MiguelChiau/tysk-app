@@ -67,6 +67,30 @@ class SignUp extends Component {
           }}
         >
           <TextInput
+            placeholder={"Name"}
+            //To get the username being typed
+            // onChangeText={value => this.setState({ username: value })}
+            placeholderTextColor="black"
+            keyboardType="email-address"
+            //The "next" allows to move to the next text field when done typing
+            returnKeyType="next"
+            autoCorrect={false}
+            // onSubmitEditing={() => this.refs.passwordText.focus()}
+          />
+        </View>
+
+        <View
+          style={{
+            height: 50,
+            width: "90%",
+            borderBottomWidth: 1,
+            marginHorizontal: 20,
+            paddingLeft: 10,
+            marginVertical: 5,
+            shadowOffset: { width: 2, height: 2 }
+          }}
+        >
+          <TextInput
             placeholder={"Email Address"}
             //To get the username being typed
             // onChangeText={value => this.setState({ username: value })}
@@ -91,7 +115,7 @@ class SignUp extends Component {
           }}
         >
           <TextInput
-            placeholder={"Passwordwe"}
+            placeholder={"Password"}
             //To get the password being typed
             // onChangeText={value => this.setState({ password: value })}
 
@@ -103,6 +127,7 @@ class SignUp extends Component {
             // ref={"passwordText"}
           />
         </View>
+
         <Button title="Sign Up" onPress={() => signUp()} />
         {/* </ScreenContainer> */}
       </View>

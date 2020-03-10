@@ -117,6 +117,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AuthContext } from "./screens/context";
 import {
   SignIn,
+  LoginAccount,
   CreateAccount,
   Search,
   Home,
@@ -138,6 +139,11 @@ const AuthStackScreen = () => (
       name="CreateAccount"
       component={CreateAccount}
       options={{ title: "Create Account" }}
+    />
+    <AuthStack.Screen
+      name="LoginAccount"
+      component={LoginAccount}
+      options={{ title: "Login to Account" }}
     />
   </AuthStack.Navigator>
 );
