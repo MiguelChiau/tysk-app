@@ -13,10 +13,12 @@ import {
   StatusBar,
   textInput,
   Keyboard,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ImageBackground
 } from "react-native";
 
 import { AuthContext } from "./context";
+import Img from "../assets/bg.jpeg";
 
 const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
@@ -93,40 +95,37 @@ export const SignIn = ({ navigation }) => {
 
   return (
     <ScreenContainer>
-      <View
-        style={{
-          backgroundColor: "white",
-          height: 70,
-          borderRadius: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          marginVertical: 10,
-          width: "90%"
-        }}
+      <TouchableOpacity
+        style={styles.landingButton1}
+        onPress={() => navigation.push("LoginAccount")}
       >
-        <Button
-          title="Sign In"
-          // onPress={() => signIn()}
-          onPress={() => navigation.push("LoginAccount")}
-        />
-      </View>
+        <Text
+          style={{
+            color: "#2E71DC",
+            textAlign: "center",
+            fontSize: 22
+          }}
+        >
+          {" "}
+          Login{" "}
+        </Text>
+      </TouchableOpacity>
 
-      <View
-        style={{
-          backgroundColor: "white",
-          height: 70,
-          borderRadius: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          marginVertical: 10,
-          width: "90%"
-        }}
+      <TouchableOpacity
+        style={styles.landingButton}
+        onPress={() => navigation.push("CreateAccount")}
       >
-        <Button
-          title="Create Account"
-          onPress={() => navigation.push("CreateAccount")}
-        />
-      </View>
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 22
+          }}
+        >
+          {" "}
+          Sign Up{" "}
+        </Text>
+      </TouchableOpacity>
     </ScreenContainer>
   );
 };
@@ -136,6 +135,14 @@ export const LoginAccount = () => {
 
   return (
     <ScreenContainer>
+      <Text
+        style={{
+          fontSize: 25,
+          color: "#2E71DC"
+        }}
+      >
+        Welcome Back!
+      </Text>
       <View
         style={{
           height: 50,
@@ -184,25 +191,18 @@ export const LoginAccount = () => {
           // ref={"passwordText"}
         />
       </View>
-      <View
-        style={{
-          borderWidth: 1,
-          height: 50,
-          width: "80%",
-          justifyContent: "center",
-          alignSelf: "center",
-          backgroundColor: "#2E71DC",
-          borderColor: "#2E71DC",
-          borderRadius: 40,
-          marginVertical: 15,
-          color: "white",
-          fontSize: 20,
-          fontWeight: "bold",
-          textAlign: "center"
-        }}
-      >
-        <Button title="Sign Up" onPress={() => signUp()} />
-      </View>
+      <TouchableOpacity style={styles.loginButton} onPress={() => signUp()}>
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          Continue{" "}
+        </Text>
+      </TouchableOpacity>
     </ScreenContainer>
   );
 };
@@ -212,6 +212,14 @@ export const CreateAccount = () => {
 
   return (
     <ScreenContainer>
+      <Text
+        style={{
+          fontSize: 25,
+          color: "#2E71DC"
+        }}
+      >
+        New Account
+      </Text>
       <View
         style={{
           height: 50,
@@ -283,25 +291,19 @@ export const CreateAccount = () => {
           // ref={"passwordText"}
         />
       </View>
-      <View
-        style={{
-          borderWidth: 1,
-          height: 50,
-          width: "80%",
-          justifyContent: "center",
-          alignSelf: "center",
-          backgroundColor: "#2E71DC",
-          borderColor: "#2E71DC",
-          borderRadius: 40,
-          marginVertical: 15,
-          color: "white",
-          fontSize: 20,
-          fontWeight: "bold",
-          textAlign: "center"
-        }}
-      >
-        <Button title="Sign Up" onPress={() => signUp()} />
-      </View>
+
+      <TouchableOpacity style={styles.loginButton} onPress={() => signUp()}>
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 20
+          }}
+        >
+          {" "}
+          Sign Up{" "}
+        </Text>
+      </TouchableOpacity>
     </ScreenContainer>
   );
 };
@@ -317,5 +319,40 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 10,
     borderRadius: 5
+  },
+
+  loginButton: {
+    borderWidth: 1,
+    height: 50,
+    width: "80%",
+    justifyContent: "center",
+    alignSelf: "center",
+    backgroundColor: "#2E71DC",
+    borderColor: "#2E71DC",
+    borderRadius: 40,
+    marginVertical: 15,
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+
+  landingButton: {
+    backgroundColor: "#2E71DC",
+    height: 70,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 10,
+    width: "90%"
+  },
+  landingButton1: {
+    backgroundColor: "white",
+    height: 70,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 10,
+    width: "90%"
   }
 });
