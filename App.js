@@ -113,6 +113,23 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Image,
+  Dimensions,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  SafeAreaView,
+  StatusBar,
+  textInput,
+  Keyboard,
+  KeyboardAvoidingView,
+  ImageBackground
+} from "react-native";
 
 import { AuthContext } from "./screens/context";
 import {
@@ -191,11 +208,20 @@ const TabsScreen = () => (
   </Tabs.Navigator>
 );
 
+const User = () => (
+  <Tabs.Navigator>
+    <Text>Howdy, Miguel</Text>
+  </Tabs.Navigator>
+);
+
 const Drawer = createDrawerNavigator();
 const DrawerScreen = () => (
   <Drawer.Navigator initialRouteName="Dashboard">
-    <Drawer.Screen name="Home" component={TabsScreen} />
+    {/* <Drawer.Screen name="Home" component={TabsScreen} /> */}
+    <Drawer.Screen name="Howdy, User" component={User} />
+
     <Drawer.Screen name="Dashboard" component={DashboardStackScreen} />
+    <Drawer.Screen name="SignOut" component={DashboardStackScreen} />
   </Drawer.Navigator>
 );
 

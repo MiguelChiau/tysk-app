@@ -18,6 +18,7 @@ import {
 } from "react-native";
 
 import { AuthContext } from "./context";
+import { Ionicons } from "@expo/vector-icons";
 
 // import { HomeStack } from "./context";
 
@@ -98,8 +99,8 @@ export const Dashboard = ({ navigation }) => {
             fontSize: 20
           }}
         >
-          {" "}
-          Add New Task{" "}
+          <Ionicons name="md-add-circle" size={32} color="blue" />
+          Add New Tasks{" "}
         </Text>
       </TouchableOpacity>
 
@@ -111,7 +112,7 @@ export const Dashboard = ({ navigation }) => {
             fontSize: 20
           }}
         >
-          {" "}
+          <Ionicons name="md-calendar" size={32} color="blue" />
           View Calender{" "}
         </Text>
       </TouchableOpacity>
@@ -124,7 +125,7 @@ export const Dashboard = ({ navigation }) => {
             fontSize: 20
           }}
         >
-          {" "}
+          <Ionicons name="md-analytics" size={32} color="blue" />
           View Statistics{" "}
         </Text>
       </TouchableOpacity>
@@ -137,12 +138,15 @@ export const Dashboard = ({ navigation }) => {
             fontSize: 20
           }}
         >
-          {" "}
+          <Ionicons name="md-notifications" size={32} color="blue" />{" "}
           Notifications{" "}
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.dashboardButton}>
+      <TouchableOpacity
+        style={styles.dashboardButton}
+        onPress={() => navigation.toggleDrawer()}
+      >
         <Text
           style={{
             // color: "white",
@@ -150,11 +154,11 @@ export const Dashboard = ({ navigation }) => {
             fontSize: 20
           }}
         >
-          {" "}
+          <Ionicons name="md-person" size={32} color="blue" />
           Profile{" "}
         </Text>
       </TouchableOpacity>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
+      {/* <Button title="Drawer" onPress={() => navigation.toggleDrawer()} /> */}
       <Button title="Sign Out" onPress={() => signOut()} />
     </ScreenContainer>
   );
@@ -457,6 +461,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4
+    shadowOpacity: 0.4,
+    // flex: 1,
+    justifyContent: "space-evenly"
   }
 });
